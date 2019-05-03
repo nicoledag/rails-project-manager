@@ -3,11 +3,13 @@ class SessionsController < ApplicationController
   skip_before_action :redirect_if_not_logged_in
 
   def home
-    
+
   end
 
   def new
-
+    if logged_in?
+      redirect_to projects_path
+    end
   end
 
   def create

@@ -3,7 +3,11 @@ class UsersController < ApplicationController
   skip_before_action :redirect_if_not_logged_in
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to projects_path
+    else
+      @user = User.new
+    end
   end
 
 
