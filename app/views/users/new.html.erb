@@ -1,6 +1,8 @@
 <h2>Sign Up</h2>
 
 <%=form_for @user do |f| %>
+
+ <%= render partial: 'layouts/errors', locals: {object: @user} %>
   <%= f.label :username %>
   <%= f.text_field :username %>
 
@@ -10,5 +12,5 @@
   <%= f.label :password%>
   <%= f.password_field :password %>
 
-  <%= f.submit "SignIn" %>
+  <%= f.submit "Sign In" %>
 <% end %>
