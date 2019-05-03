@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_action :redirect_if_not_logged_in
+
   def new
     @user = User.new
   end
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
     end
   end
 
-  
+
   private
 
   def user_params
