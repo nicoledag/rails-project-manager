@@ -1,7 +1,11 @@
-[ ] Add redirect if not logged in functionality users and sessions UsersController.
 [ ] Add Readme file.
-[ ] Add requirements file.
+[ ] Include many to many relationship.
+[ ] Include on has_many and belongs_to relatonship.
 [ ] You must include a nested new route with form that relates to the parent resource
   client/1/project/1/new
 [ ] You must include a nested index or show route
   client/1/project/1
+[ ] Include Authenticationsystem
+[ ] Include validations
+[ ] Include one scope method
+[ ] Include CRUD 
