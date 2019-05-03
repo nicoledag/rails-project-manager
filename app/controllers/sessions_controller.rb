@@ -10,12 +10,6 @@ class SessionsController < ApplicationController
   def create
     # raise params.inspect
 
-    # <ActionController::Parameters {"utf8"=>"✓", "authenticity_token"=>"qzganR2BGNc2YzseSO3aAEnn5ggjtmGsc6z0CGI3hR02lKezYOYCCpYmCYF/i/njyZzXSpbXP0P4YuWPcGgo1w==",
-    # "username"=>"nicole",
-    # "user"=>{"email"=>"nnardella@gmail.com"},
-    # "password"=>"1234",
-    # "commit"=>"Log In", "controller"=>"sessions", "action"=>"create"} permitted: false>
-
     @user = User.find_by(username: params[:username])
       if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
