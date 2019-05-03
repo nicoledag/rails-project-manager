@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
 
   belongs_to :user
-  belongs_to :project
-  
+  belongs_to :client
+
   has_many :comments
 end
