@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Short Description
 
-Things you may want to cover:
+This Rails application is designed for a user to track client projects.
 
-* Ruby version
+Install Instructions
 
-* System dependencies
+git clone git@github.com:nicoledag/rails-project-manager-app.git
 
-* Configuration
+cd rails-project-manager-app
 
-* Database creation
+bundle install
 
-* Database initialization
+rake db:migrate
 
-* How to run the test suite
+Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Bug reports and pull requests are welcome on GitHub at git@github.com:nicoledag/rails-project-manager-app.git. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Deployment instructions
+Authors: Nicole Dagnenica
 
-* ...
+Technology Used: Object Oriented Ruby programming language, Session and Bcrypt for secure session, Active Record for database managment, HTML and CSS for styling, Photoshop for logo and background image
+
+License: The gem is available as open source under the terms of the MIT License.
