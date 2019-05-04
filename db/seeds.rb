@@ -9,6 +9,6 @@
 
 # Tested associations
 user = User.create(username: "Nicole", email: "nicole@email.com", password: "hello767")
-client = Client.create(name: "Donna", email: "donna@email.com", phone: "222-222-2222", street_address: "22 Peach Rd", city: "NY", state: "New York", zip: 10001, company: "Macys")
+client = Client.create(contact_name: "Donna", email: "donna@email.com", phone: "222-222-2222", street_address: "22 Peach Rd", city: "NY", state: "New York", zip: 10001, company_name: "Macys")
 
 user.projects.create(client: client)

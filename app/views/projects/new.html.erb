@@ -1,6 +1,6 @@
 <h2>Create new project here</h2>
 
-<%=form_for @project do |f| %>
+<%=form_for ([@project.client, @project]) do |f| %>
 
  <%= render partial: 'layouts/errors', locals: {object: @project} %>
 
