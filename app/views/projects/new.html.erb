@@ -1,1 +1,14 @@
 <h2>Create new project here</h2>
+
+<%=form_for @project do |f| %>
+
+ <%= render partial: 'layouts/errors', locals: {object: @project} %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description%>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Create Project" %>
+<% end %>

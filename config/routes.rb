@@ -9,9 +9,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :projects
+  resources :clients
 
   resources :clients do
-    resources :projects 
+    resources :projects
   end
 
 end

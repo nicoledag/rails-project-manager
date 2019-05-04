@@ -11,5 +11,6 @@
 <h3>Zip <%=@client.zip%></h3>
 
 
-<%= link_to "Edit Client", edit_client_path(@client) %></div>
+<%= link_to "Edit Client", edit_client_path(@client) %>
 <%= link_to "Delete Client", client_path(@client), method: :delete  %>
+<%= link_to "Create New Project", new_client_project_path(@client) %>
