@@ -20,16 +20,16 @@ class ClientsController < ApplicationController
 
   def show
     # raise params.inspect
-    @client = Client.find_by(id: params[:id])
+    set_client
   end
 
   def edit
     # raise params.inspect
-    @client = Client.find_by(id: params[:id])
+    set_client
   end
 
   def update
-    @client = Client.find_by(id: params[:id])
+    set_client
     if @client.update(client_params)
       redirect_to client_path(@client)
     else
@@ -37,11 +37,21 @@ class ClientsController < ApplicationController
     end
   end
 
+  def destroy
+    set_client
+    @client.destroy
+    redirect_to client_path
+  end
 
 
   private
-    def client_params
-      params.require(:client).permit(:company_name, :email, :phone, :street_address, :city, :state, :zip, :contact_name)
-    end
+
+  def set_client
+    @client = Client.find_by(id: params[:id])
+  end
+
+  def client_params
+    params.require(:client).permit(:company_name, :email, :phone, :street_address, :city, :state, :zip, :contact_name)
+  end
 
 end
