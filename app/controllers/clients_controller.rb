@@ -28,6 +28,16 @@ class ClientsController < ApplicationController
     @client = Client.find_by(id: params[:id])
   end
 
+  def update
+    @client = Client.find_by(id: params[:id])
+    if @client.update(client_params)
+      redirect_to client_path(@client)
+    else
+      render :edit #allows for field with errors.
+    end
+  end
+
+
 
   private
     def client_params
