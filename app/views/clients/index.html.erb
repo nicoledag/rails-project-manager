@@ -2,7 +2,7 @@
 
 
 <% @clients.each do |c| %>
-<h2>Company Name <%= c.company_name %></h2>
+<h2>Company Name <%= link_to c.company_name, client_path(c) %></h2>
 <h3>Contact Name <%= c.contact_name %></h3>
 <h3>Email <%=c.email%></h3>
 <h3>Phone <%=c.phone%></h3>

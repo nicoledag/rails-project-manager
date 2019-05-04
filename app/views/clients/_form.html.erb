@@ -1,0 +1,31 @@
+<%=form_for @client do |f| %>
+
+ <%= render partial: 'layouts/errors', locals: {object: @client} %>
+  <%= f.label :company_name %>
+  <%= f.text_field :company_name %>
+
+  <%= f.label :contact_name%>
+  <%= f.text_field :contact_name %>
+
+  <%= f.label :email%>
+  <%= f.email_field :email %>
+
+  <%= f.label :phone%>
+  <%= f.text_field :phone %>
+
+  <%= f.label :street_address%>
+  <%= f.text_field :street_address %>
+
+  <%= f.label :city%>
+  <%= f.text_field :city %>
+
+  <%= f.label :state%>
+  <%= f.text_field :state %>
+
+  <%= f.label :zip%>
+  <%= f.text_field :zip %>
+
+
+
+  <%= f.submit "Create Client" %>
+<% end %>

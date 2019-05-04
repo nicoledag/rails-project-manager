@@ -23,6 +23,11 @@ class ClientsController < ApplicationController
     @client = Client.find_by(id: params[:id])
   end
 
+  def edit
+    # raise params.inspect
+    @client = Client.find_by(id: params[:id])
+  end
+
 
   private
     def client_params
