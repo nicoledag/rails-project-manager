@@ -7,5 +7,7 @@
   client/1/project/1
 [ ] Include Authenticationsystem
 [ ] Include validations
+    User - validates presence and uniqueness of username and email.
+    Client - validates presence and uniqueness of name.
 [ ] Include one scope method
-[ ] Include CRUD 
+[ ] Include CRUD
