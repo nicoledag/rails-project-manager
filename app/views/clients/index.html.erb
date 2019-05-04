@@ -1,6 +1,14 @@
 <H2>List of All Clients</H2>
 
 
-<%= @clients.each do |c| %>
-<%= c.company_name %>
+<% @clients.each do |c| %>
+<h2>Company Name <%= c.company_name %></h2>
+<h3>Contact Name <%= c.contact_name %></h3>
+<h3>Email <%=c.email%></h3>
+<h3>Phone <%=c.phone%></h3>
+<h3>Street Address <%=c.street_address%></h3>
+<h3>City <%=c.city%></h3>
+<h3>State <%=c.state%></h3>
+<h3>Zip <%=c.zip%></h3>
+
 <% end %>
