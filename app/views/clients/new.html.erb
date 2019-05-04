@@ -1,1 +1,16 @@
 <h2>New Client Page</h2>
+
+<%=form_for @client do |f| %>
+
+ <%= render partial: 'layouts/errors', locals: {object: @client} %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email%>
+  <%= f.email_field :email %>
+
+  <%= f.label :phone%>
+  <%=  telephone_field("client", "phone") %>
+
+  <%= f.submit "Create Client" %>
+<% end %>
