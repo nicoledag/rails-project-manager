@@ -40,7 +40,7 @@ class ClientsController < ApplicationController
   def destroy
     set_client
     @client.destroy
-    redirect_to client_path
+    redirect_to clients_path
   end
 
 
@@ -48,6 +48,9 @@ class ClientsController < ApplicationController
 
   def set_client
     @client = Client.find_by(id: params[:id])
+    if !@client
+      redirect_to clients_path
+    end
   end
 
   def client_params
