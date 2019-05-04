@@ -10,4 +10,8 @@
     User - validates presence and uniqueness of username and email.
     Client - validates presence and uniqueness of name.
 [ ] Include one scope method
-[ ] Include CRUD
+[ ] Perform CRUD actions on the following models
+    - Client
+    - Project
+    - Comment
+    - User, only create and read.

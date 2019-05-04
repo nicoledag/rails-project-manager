@@ -3,8 +3,11 @@
 <%=form_for @client do |f| %>
 
  <%= render partial: 'layouts/errors', locals: {object: @client} %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label :company_name %>
+  <%= f.text_field :company_name %>
+
+  <%= f.label :contact_name%>
+  <%= f.text_field :contact_name %>
 
   <%= f.label :email%>
   <%= f.email_field :email %>
@@ -24,8 +27,7 @@
   <%= f.label :zip%>
   <%= f.text_field :zip %>
 
-  <%= f.label :company%>
-  <%= f.text_field :company %>
+
 
   <%= f.submit "Create Client" %>
 <% end %>
