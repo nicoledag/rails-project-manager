@@ -12,5 +12,20 @@
   <%= f.label :phone%>
   <%=  telephone_field("client", "phone") %>
 
+  <%= f.label :street_address%>
+  <%= f.text_field :street_address %>
+
+  <%= f.label :city%>
+  <%= f.text_field :city %>
+
+  <%= f.label :state%>
+  <%= f.text_field :state %>
+
+  <%= f.label :zip%>
+  <%=number_field("client", "zip") %>
+
+  <%= f.label :company%>
+  <%= f.text_field :company %>
+
   <%= f.submit "Create Client" %>
 <% end %>
