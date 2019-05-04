@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception  #authenticity_token which prevents again CSRF (Cross Site Request Forgery).
   # include ApplicationHelper
 
   before_action :redirect_if_not_logged_in

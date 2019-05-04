@@ -10,7 +10,7 @@
   <%= f.email_field :email %>
 
   <%= f.label :phone%>
-  <%=  telephone_field("client", "phone") %>
+  <%=  phone_field("client", "phone") %>
 
   <%= f.label :street_address%>
   <%= f.text_field :street_address %>
@@ -22,7 +22,7 @@
   <%= f.text_field :state %>
 
   <%= f.label :zip%>
-  <%=number_field("client", "zip") %>
+  <%= f.text_field :zip %>
 
   <%= f.label :company%>
   <%= f.text_field :company %>
