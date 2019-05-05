@@ -7,9 +7,9 @@
 [X] Include on has_many and belongs_to relatonship.
     - Project has many comments.  Comment belongs to a Project.
 
-[ ] You must include a nested new route with form that relates to the parent resource
+[X] You must include a nested new route with form that relates to the parent resource
   client/1/project/1/new
-[ ] You must include a nested index or show route
+[X] You must include a nested index or show route
   client/1/project/1
 
 [X] Include Authenticationsystem
