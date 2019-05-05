@@ -7,8 +7,12 @@ class ProjectsController < ApplicationController
 
     def new
         # raise params.inspect
-      @client = Client.find_by_id(params[:client_id])
-      @project = @client.projects.build
+      if (params[:client_id])
+        @client = Client.find_by_id(params[:client_id])
+        @project = @client.projects.build
+      else
+        @project = Project.new
+      end
     end
 
   #   if params[:client_id] && @client = Client.find_by_id(params[:client_id])
