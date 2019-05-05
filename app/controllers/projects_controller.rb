@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     def new
         # raise params.inspect
       @client = Client.find_by_id(params[:client_id])
-      @project = current_user.projects.build
+      @project = @client.projects.build
     end
 
   #   if params[:client_id] && @client = Client.find_by_id(params[:client_id])
@@ -17,10 +17,11 @@ class ProjectsController < ApplicationController
   # end
 
   def create
-    # raise params.inspect
+    raise params.inspect
 
     @client = Client.find(params[:client_id])
     @project = @client.projects.create(project_params)
+    @project.user_id = current_user.id
     # @project = current_user.projects.create(project_params)
     # if @project.save
       redirect_to client_project_path(@client, @project)
