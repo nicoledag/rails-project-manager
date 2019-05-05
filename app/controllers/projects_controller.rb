@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   def index
+    @projects = Project.all
   end
 
 
@@ -16,7 +17,6 @@ class ProjectsController < ApplicationController
   # end
 
   def create
-    # raise params.inspect
     client = Client.find_by_id(params[:client_id])
     @project = current_user.projects.create(project_params)
     if @project.save
