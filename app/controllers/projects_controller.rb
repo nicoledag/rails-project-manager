@@ -17,10 +17,10 @@ class ProjectsController < ApplicationController
   # end
 
   def create
-    client = Client.find_by_id(params[:client_id])
+    # raise params.inspect
     @project = current_user.projects.create(project_params)
     if @project.save
-      redirect_to client_project_path(@project)
+      redirect_to client_project_path
     else
     #if the user information does'nt save from validation.
       render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
@@ -28,6 +28,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    # raise params.inspect
     @project = Project.find_by(id: params[:id])
   end
 
