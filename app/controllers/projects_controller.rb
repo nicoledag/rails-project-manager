@@ -17,11 +17,12 @@ class ProjectsController < ApplicationController
   # end
 
   def create
-    raise params.inspect
+    # raise params.inspect
 
     @client = Client.find(params[:client_id])
     @project = @client.projects.create(project_params)
     @project.user_id = current_user.id
+    @project.save
     # @project = current_user.projects.create(project_params)
     # if @project.save
       redirect_to client_project_path(@client, @project)
@@ -32,13 +33,13 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # raise params.inspect
+    raise params.inspect
     @project = Project.find_by(id: params[:id])
   end
 
   private
   def project_params
-    params.require(:project).permit(:name, :description)
+    params.require(:project).permit(:name, :description, params[:client_id])
   end
 
 
