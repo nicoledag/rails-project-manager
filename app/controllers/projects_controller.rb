@@ -7,8 +7,7 @@ class ProjectsController < ApplicationController
 
     def new
         # raise params.inspect
-      if (params[:client_id])
-        @client = Client.find_by_id(params[:client_id])
+      if (params[:client_id]) &&  @client = Client.find_by_id(params[:client_id])
         @project = @client.projects.build
       else
         @project = Project.new
@@ -23,17 +22,26 @@ class ProjectsController < ApplicationController
   def create
     # raise params.inspect
 
+   # if @project.save
+
+    if (params[:client_id])
     @client = Client.find(params[:client_id])
     @project = @client.projects.create(project_params)
     @project.user_id = current_user.id
     @project.save
-    # @project = current_user.projects.create(project_params)
-    # if @project.save
+
       redirect_to client_project_path(@client, @project)
-    # else
-    # #if the user information does'nt save from validation.
-    #   render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
-    # end
+    elsif
+      @client = Client.find(params[:project][:client_id])
+      @project = @client.projects.create(project_params)
+      @project.user_id = current_user.id
+      @project.save
+
+      redirect_to client_project_path(@client, @project)
+
+    else
+      render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
+    end
   end
 
   def show

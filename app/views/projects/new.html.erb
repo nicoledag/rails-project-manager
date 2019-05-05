@@ -10,5 +10,10 @@
   <%= f.label :description%>
   <%= f.text_field :description %>
 
+  <% if !params[:client_id]%>
+  <%= f.label :client_id, "Select a Client" %>
+  <%= f.collection_select :client_id, Client.all, :id, :company_name, prompt: true %>
+  <% end %>
+
   <%= f.submit "Create Project" %>
 <% end %>
