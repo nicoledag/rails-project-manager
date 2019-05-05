@@ -18,13 +18,16 @@ class ProjectsController < ApplicationController
 
   def create
     # raise params.inspect
-    @project = current_user.projects.create(project_params)
-    if @project.save
-      redirect_to client_project_path
-    else
-    #if the user information does'nt save from validation.
-      render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
-    end
+
+    @client = Client.find(params[:client_id])
+    @project = @client.projects.create(project_params)
+    # @project = current_user.projects.create(project_params)
+    # if @project.save
+      redirect_to client_project_path(@client, @project)
+    # else
+    # #if the user information does'nt save from validation.
+    #   render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
+    # end
   end
 
   def show
@@ -34,7 +37,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :client_id)
+    params.require(:project).permit(:name, :description)
   end
 
 
