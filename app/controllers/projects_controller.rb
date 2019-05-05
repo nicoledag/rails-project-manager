@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    raise params.inspect
+    # raise params.inspect
     @project = Project.find_by(id: params[:id])
   end
 

@@ -1,1 +1,7 @@
 <h2><%= current_user.capitalize %>'s Projects</h2>
+
+<% @projects.each do |p| %>
+<h2>Name: <%= p.name %></h2>
+<h3>Description: <%= p.description %></h3>
+
+<% end %>
