@@ -42,10 +42,32 @@ class ProjectsController < ApplicationController
 
   def show
     # raise params.inspect
-    @project = Project.find_by(id: params[:id])
+    set_project
+  end
+
+  def edit
+    # raise params.inspect
+    set_project
+  end
+
+  def update
+    set_project
+    if @project.update(project_params)
+      redirect_to project_path(@project)
+    else
+      render :edit #allows for field with errors.
+    end
   end
 
   private
+
+  def set_project
+    @project = Project.find_by(id: params[:id])
+    if !@project
+      redirect_to projects_path
+    end
+  end
+
     def project_params
       params.require(:project).permit(:name, :description)
     end
