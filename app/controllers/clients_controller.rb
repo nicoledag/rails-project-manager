@@ -10,6 +10,9 @@ class ClientsController < ApplicationController
 
   def create
     # raise params.inspect
+
+    #SET USER.CLIENT
+    
     @client = Client.create(client_params)
     if @client.save
       redirect_to client_path(@client)
