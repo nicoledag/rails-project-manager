@@ -45,10 +45,10 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(id: params[:id])
   end
 
-private
-  def project_params
-    params.require(:project).permit(:name, :description)
-  end
+  private
+    def project_params
+      params.require(:project).permit(:name, :description)
+    end
 
 
 end
