@@ -3,7 +3,7 @@
 <br>
 
 <% @projects.each do |p| %>
-<h2>Name: <%= p.name %></h2>
+<h2>Name: <%= link_to p.name, project_path(p) %></h2>
 <h3>Description: <%= p.description %></h3>
 <h3>Client Company Name: <%= p.client.company_name%></h3>
 <h3>User Name: <%= p.user.username.capitalize%></h3>
