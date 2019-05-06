@@ -1,5 +1,7 @@
+<br>
 <H2>List of All Clients</H2>
 
+<br>
 
 <% @clients.each do |c| %>
 <h2>Company Name <%= link_to c.company_name, client_path(c) %></h2>
@@ -10,5 +12,7 @@
 <h3>City <%=c.city%></h3>
 <h3>State <%=c.state%></h3>
 <h3>Zip <%=c.zip%></h3>
+
+<br>
 
 <% end %>
