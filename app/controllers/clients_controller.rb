@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
 
   def index
-    @clients = current_user.clients
+    @clients = Client.all
   end
 
   def new
@@ -10,8 +10,6 @@ class ClientsController < ApplicationController
 
   def create
     # raise params.inspect
-
-    #SET USER.CLIENT
     
     @client = Client.create(client_params)
     if @client.save
