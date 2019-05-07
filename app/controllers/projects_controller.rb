@@ -1,9 +1,8 @@
 class ProjectsController < ApplicationController
 
-  def index
-    @projects = current_user.projects
-  end
 
+  def index
+  end
 
   def new
         # raise params.inspect
