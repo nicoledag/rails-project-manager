@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = current_user.projects
+    @clients = Client.all
   end
 
   def new

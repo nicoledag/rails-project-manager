@@ -5,8 +5,10 @@
 <br>
 
 <% @projects.each do |p| %>
-<h2>Company Name: <%= p.client.company_name%></h2>
+<h2>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h2>
 <h2>Description: <%= p.description %></h2>
+<h2>Client Name: <%= p.client.company_name %></h2>
+
 <br>
 
 <% end %>
