@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   resources :users
   resources :projects
   resources :clients
+  resources :comments
+
+  resources :projects do
+    resources :comments
+  end
+
 
   resources :clients do
     resources :projects

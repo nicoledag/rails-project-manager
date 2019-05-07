@@ -1,0 +1,12 @@
+<%=form_for @comment do |f| %>
+
+ <%= render partial: 'layouts/errors', locals: {object: @comment} %>
+
+  <%= f.fields_for :comments do |c| %>
+  <%= c.label :comment %>
+  <%= c.text_field :content %>
+
+  <% end %>
+
+  <%= f.submit "Submit" %>
+<% end %>

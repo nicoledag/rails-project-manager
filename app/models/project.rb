@@ -11,12 +11,12 @@ class Project < ApplicationRecord
   def comments_attributes=(comments_attributes)
     comments_attributes.each do |i, comment_attributes|
       # raise params.inspect
-      @comment = Comment.find_or_create_by(content: comment_attributes[:content])
-        if @comment.content.present?
-          self.comments.update(comment_attributes)
-        else
+      # @comment = Comment.find_or_create_by(content: comment_attributes[:content])
+        # if @comment.project_id == nil
           self.comments.build(comment_attributes)
-        end
+        # else
+        #   self.comments.update(comment_attributes)
+        # end
     end
   end
 

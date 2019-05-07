@@ -6,9 +6,9 @@ class ProjectsController < ApplicationController
   end
 
   def new
-        # raise params.inspect
+    # raise params.inspect
     if (params[:client_id]) &&  @client = Client.find_by_id(params[:client_id])
-      @project = @client.projects.build
+      @project = @client.projects.build #adds client id to project.
       @project.comments.build
     else
       @project = Project.new
@@ -44,6 +44,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    raise params.inspect
     set_project
     if project_user_equals_current_user
       @project.update(project_params)
