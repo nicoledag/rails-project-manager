@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
         # raise params.inspect
     if (params[:client_id]) &&  @client = Client.find_by_id(params[:client_id])
       @project = @client.projects.build
+      @project.comments.build
     else
       @project = Project.new
       @project.comments.build
@@ -74,7 +75,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description)
+    params.require(:project).permit(:name, :description, :comments_attributes => [:content])
   end
 
 
