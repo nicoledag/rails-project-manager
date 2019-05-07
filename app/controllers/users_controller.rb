@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def new
     if logged_in?
-      redirect_to projects_path
+      redirect_to clients_path
     else
       @user = User.new
     end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to projects_path     #projects/index page
+      redirect_to clients_path     #projects/index page
     else
       render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
     end
