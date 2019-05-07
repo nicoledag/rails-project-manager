@@ -1,0 +1,12 @@
+<h1>Welcome <%=current_user.capitalize%></h1>
+<br>
+<H2>Here are your Projects</H2>
+
+<br>
+
+<% @projects.each do |p| %>
+<h2>Company Name: <%= p.client.company_name%></h2>
+<h2>Description: <%= p.description %></h2>
+<br>
+
+<% end %>

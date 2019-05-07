@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
 
   def index
+    @projects = current_user.projects
   end
 
   def new
@@ -51,8 +52,11 @@ class ProjectsController < ApplicationController
 
   def update
     set_project
-    if @project.update(project_params)
+    if project_user_equals_current_user
+      @project.update(project_params)
       redirect_to project_path(@project)
+    elsif !project_user_equals_current_user
+      redirect_to clients_path
     else
       render :edit #allows for field with errors.
     end
@@ -73,9 +77,13 @@ class ProjectsController < ApplicationController
     end
   end
 
-    def project_params
-      params.require(:project).permit(:name, :description)
-    end
+  def project_user_equals_current_user
+    @project.user == current_user
+  end
+
+  def project_params
+    params.require(:project).permit(:name, :description)
+  end
 
 
 end
