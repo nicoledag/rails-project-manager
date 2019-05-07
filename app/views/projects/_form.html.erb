@@ -13,5 +13,11 @@
   <%= f.collection_select :client_id, Client.all, :id, :company_name, prompt: true %>
   <% end %>
 
+  <%= f.fields_for :comments do |c| %>
+  <%= c.label :comment %>
+  <%= c.text_field :content %>
+
+  <% end %>
+
   <%= f.submit "Submit" %>
 <% end %>

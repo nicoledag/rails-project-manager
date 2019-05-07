@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
       @project = @client.projects.build
     else
       @project = Project.new
+      @project.comments.build
     end
   end
 
