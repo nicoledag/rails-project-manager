@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
 
-
   def index
     @projects = current_user.projects
   end
@@ -17,7 +16,7 @@ class ProjectsController < ApplicationController
 
   def create
     # raise params.inspect
-    if (params[:client_id])
+    if (params[:client_id])  #not able to pass client_id through params.
       @client = Client.find(params[:client_id])
     elsif
       @client = Client.find(params[:project][:client_id])
@@ -46,8 +45,6 @@ class ProjectsController < ApplicationController
     if project_user_equals_current_user
       @project.update(project_params)
       redirect_to project_path(@project)
-    elsif !project_user_equals_current_user
-      redirect_to clients_path
     else
       render :edit #allows for field with errors.
     end
@@ -55,8 +52,10 @@ class ProjectsController < ApplicationController
 
   def destroy
     set_project
-    @project.destroy
-    redirect_to projects_path
+    if project_user_equals_current_user
+      @project.destroy
+      redirect_to projects_path
+    end
   end
 
   private
