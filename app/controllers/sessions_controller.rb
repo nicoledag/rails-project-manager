@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def new
     if logged_in?
-      redirect_to clients_path
+      redirect_to projects_path
     end
   end
 
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
       if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to clients_path     #projects/index page
+      redirect_to projects_path     #projects/index page
     else
       redirect_to login_path  #does not allow for field w/errors and does not keep data.
     end
