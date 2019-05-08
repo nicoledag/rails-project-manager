@@ -4,9 +4,9 @@ class Project < ApplicationRecord
   belongs_to :client
   has_many :comments
 
-  validates :name, :description, :client_id, presence: true
+  validates :name, :description, presence: true
 
-
+  validates :client, :presence => true
 
 
   def comments_attributes=(comments_attributes)
@@ -20,5 +20,6 @@ class Project < ApplicationRecord
         # end
     end
   end
+
 
 end
