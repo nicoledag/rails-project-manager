@@ -4,9 +4,7 @@ class Project < ApplicationRecord
   belongs_to :client
   has_many :comments
 
-  validates :name, :description, presence: true
-
-  validates :client, :presence => true
+  validates :name, :description, :client, presence: true
 
 
   def comments_attributes=(comments_attributes)
