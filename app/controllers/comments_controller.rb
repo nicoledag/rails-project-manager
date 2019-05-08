@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   end
 
   def new
-    (params[:project_id]) && project = Project.find_by_id(params[:project_id])
-    # raise params.inspect
-    @comment = project.comments.build
+      # raise params.inspect
+    (params[:project_id]) && @project = @Project.find_by_id(params[:project_id])
+    @comment = @project.comments.build
   end
 
   def create
