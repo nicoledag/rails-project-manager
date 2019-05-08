@@ -11,6 +11,9 @@
   <%= f.label :target_completion_date%>
   <%=f.date_field :target_completion_date%>
 
+  <%= f.label :completion_date%>
+  <%=f.date_field :completion_date%>
+
   <% if !params[:client_id]%>
   <%= f.label :client_id, "Select a Client" %>
   <%= f.collection_select :client_id, Client.all, :id, :company_name, prompt: true %>
