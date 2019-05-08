@@ -7,8 +7,13 @@
 <h2>Current User: <%= @project.user.username%></h2>
 <h2>Client Company Name: <%= @project.client.company_name%></h2>
 
+<br>
+
 <% @project.comments.each do |p| %>
-<h2>Comment: <%= p.content%></h2>
+
+<h2>Date Created: <%= p.created_at %> -  Comment: <%= p.content%> </h2>
+<h2>Comment: <%= p.content%> </h2>
+<br>
 <% end %>
 
 <%= link_to "New Comment", new_project_comment_path(@project) %>

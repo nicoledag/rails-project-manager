@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def new
       # raise params.inspect
-    (params[:project_id]) && @project = @Project.find_by_id(params[:project_id])
+  (params[:project_id]) && @project = Project.find_by_id(params[:project_id])
     @comment = @project.comments.build
   end
 
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
       @project = Project.find(params[:comment][:project_id])
       @client = @project.client_id
       @comment = @project.comments.create(comment_params)
-      redirect_to client_projects_path(@client, @project)
+      redirect_to client_project_path(@client, @project)
     else
       render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
     end
