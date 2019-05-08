@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_114716) do
+ActiveRecord::Schema.define(version: 2019_05_08_021437) do
 
   create_table "clients", force: :cascade do |t|
     t.string "email"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_05_04_114716) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "title"
     t.text "content"
     t.integer "project_id"
     t.datetime "created_at", null: false

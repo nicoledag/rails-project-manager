@@ -8,14 +8,13 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :users
-  resources :projects
+  resources :projects  
   resources :clients
   resources :comments
 
   resources :projects do
     resources :comments
   end
-
 
   resources :clients do
     resources :projects
