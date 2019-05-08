@@ -5,7 +5,9 @@
   <%= f.label :content %>
   <%= f.text_field :content %>
 
+  <% if params[:project_id]%>
   <%= f.hidden_field :project_id, :value => @project.id %>
+  <% end %>
 
 
   <%= f.submit "Submit" %>

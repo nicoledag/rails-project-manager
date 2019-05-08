@@ -10,8 +10,7 @@
 <br>
 
 <% @project.comments.each do |p| %>
-
-<h2>Date Created: <%= p.created_at %> -  Comment: <%= p.content%> </h2>
+<h2>Date Created: <%=  link_to p.created_at, edit_comment_path(p) %>
 <h2>Comment: <%= p.content%> </h2>
 <br>
 <% end %>
