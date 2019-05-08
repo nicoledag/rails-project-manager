@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :users
-  resources :projects  
+  resources :projects
   resources :clients
-  resources :comments
+  resources :comments, only: [:new, :create, :edit, :update, :destroy]
 
   resources :projects do
-    resources :comments
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
 
   resources :clients do
