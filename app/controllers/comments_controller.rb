@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
+    raise params.inspect
       (params[:comment][:project_id])
       @project = Project.find(params[:comment][:project_id])
       @client = @project.client_id
@@ -36,6 +36,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content) #TOOK OUT PROJECT ID!
+    params.require(:comment).permit(:content, :project_id) 
   end
 end

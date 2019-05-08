@@ -4,8 +4,7 @@ class Project < ApplicationRecord
   belongs_to :client
   has_many :comments
 
-  validates :name, :description, presence: true
-  validates :client_id, presence: true
+  validates :name, :description, :client_id, presence: true
 
 
 

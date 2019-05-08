@@ -16,16 +16,16 @@ class ProjectsController < ApplicationController
 
   def create
     # raise params.inspect
-    if (params[:project][:client_id])
-      @client = Client.find(params[:project][:client_id])
+    (params[:project][:client_id])
+    @client = Client.find(params[:project][:client_id])
 
-      @project = @client.projects.create(project_params)
-      @project.user_id = current_user.id
-      @project.save
-      redirect_to client_project_path(@client, @project)
-    else
-      render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
-    end
+    @project = @client.projects.create(project_params)
+    @project.user_id = current_user.id
+      if @project.save
+        redirect_to client_project_path(@client, @project)
+      else
+        render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
+      end
   end
 
   def show
