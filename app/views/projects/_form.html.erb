@@ -11,7 +11,9 @@
   <% if !params[:client_id]%>
   <%= f.label :client_id, "Select a Client" %>
   <%= f.collection_select :client_id, Client.all, :id, :company_name, prompt: true %>
-
+  <% else %>
+    <%= f.hidden_field :client_id, :value => @client.id %>
+  <% end %>
 
   <%= f.submit "Submit" %>
 <% end %>
