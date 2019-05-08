@@ -1,11 +1,13 @@
 class Project < ApplicationRecord
 
-  belongs_to :user, optional: true
-  belongs_to :client, optional: true
+  belongs_to :user
+  belongs_to :client
+  has_many :comments
 
   validates :name, :description, presence: true
+  validates :client_id, presence: true
 
-  has_many :comments
+
 
 
   def comments_attributes=(comments_attributes)
