@@ -62,9 +62,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def project_user_equals_current_user
-    @project.user == current_user
-  end
 
   def project_params
     params.require(:project).permit(:name, :description, :client_id)

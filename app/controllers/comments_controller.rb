@@ -5,15 +5,15 @@ class CommentsController < ApplicationController
 
   def new
       # raise params.inspect
-  (params[:project_id]) && @project = Project.find_by_id(params[:project_id])
-    @comment = @project.comments.build
+    if (params[:project_id]) && @project = Project.find_by_id(params[:project_id])
+      @comment = @project.comments.build
+    end
   end
 
   def create
     # raise params.inspect
-    (params[:comment][:project_id])
     @project = Project.find(params[:comment][:project_id])
-    @client = @project.client_id
+    set_client_instance_variable_for_redirect
     @comment = @project.comments.create(comment_params)
 
       if @comment.save
@@ -21,10 +21,6 @@ class CommentsController < ApplicationController
       else
         render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
       end
-  end
-
-  def show
-    #not using show action
   end
 
   def edit
@@ -35,14 +31,26 @@ class CommentsController < ApplicationController
   def update
     # raise params.inspect
     set_comment
-    @project = @comment.project
-    @client = @project.client
-    if project_user_equals_current_user && @comment.update(comment_params)
-      redirect_to client_project_path(@client, @project)
-    else
-      render :edit #allows for field with errors.
-    end
+    set_project_instance_variable_for_redirect
+    set_client_instance_variable_for_redirect
+      if project_user_equals_current_user && @comment.update(comment_params)
+        redirect_to client_project_path(@client, @project)
+      else
+        render :edit #allows for field with errors.
+      end
   end
+
+  def destroy
+    # raise params.inspect
+    set_comment
+    set_project_instance_variable_for_redirect
+    set_client_instance_variable_for_redirect
+      if project_user_equals_current_user
+        @comment.destroy
+        redirect_to client_project_path(@client, @project)
+      end
+  end
+
 
   private
 
@@ -53,11 +61,16 @@ class CommentsController < ApplicationController
     end
   end
 
-  def project_user_equals_current_user
-    @project.user == current_user
+  def set_client_instance_variable_for_redirect
+    @client = @project.client
+  end
+
+  def set_project_instance_variable_for_redirect
+    @project = @comment.project
   end
 
   def comment_params
     params.require(:comment).permit(:content)
   end
+
 end

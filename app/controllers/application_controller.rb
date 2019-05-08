@@ -21,4 +21,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user #so current_user can be used in views.
 
+  private
+  def project_user_equals_current_user
+    @project.user == current_user
+  end
+
 end
