@@ -13,7 +13,8 @@
 <h2>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h2>
 <h2>Description: <%= p.description %></h2>
 <h2>Client Name: <%= p.client.company_name %></h2>
-
+<h2>Target Completion Date: <%= p.format_target_date %></h2>
+<h2>Completion Date: <%= p.format_completed_date %></h2>
 <br>
 
 <% end %>

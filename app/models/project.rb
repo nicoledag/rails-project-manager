@@ -14,11 +14,15 @@ class Project < ApplicationRecord
   end
 
   def format_target_date
-    target_completion_date.strftime("%m/%d/%Y")
+    if target_completion_date
+      target_completion_date.strftime("%m/%d/%Y")
+    end
   end
 
   def format_completed_date
-    completion_date.strftime("%m/%d/%Y")
+    if completion_date
+      completion_date.strftime("%m/%d/%Y")
+    end
   end
 
 end
