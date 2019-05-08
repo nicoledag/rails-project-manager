@@ -38,8 +38,7 @@ class ProjectsController < ApplicationController
   def update
     # raise params.inspect
     set_project
-    if project_user_equals_current_user
-      @project.update(project_params)
+    if project_user_equals_current_user && @project.update(project_params)
       redirect_to project_path(@project)
     else
       render :edit #allows for field with errors.
