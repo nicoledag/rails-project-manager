@@ -2,7 +2,7 @@
 
 Short Description
 
-This Rails application is designed for a user to track client projects.
+This Rails application is designed for a user to create and manage client projects.
 
 Install Instructions
 
@@ -20,6 +20,6 @@ Bug reports and pull requests are welcome on GitHub at git@github.com:nicoledag/
 
 Authors: Nicole Dagnenica
 
-Technology Used: Object Oriented Ruby programming language, Session and Bcrypt for secure session, Active Record for database managment, HTML and CSS for styling, Photoshop for logo and background image
+Technology Used: Object Oriented Ruby programming language, Session and Bcrypt for secure session, Active Record for database management, HTML and CSS for styling, Photoshop for design work.
 
 License: The gem is available as open source under the terms of the MIT License.

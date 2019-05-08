@@ -1,4 +1,4 @@
-[ ] Add Readme file.
+[x] Add Readme file.
 
 [X] Include many to many relationship.
     - User has many projects.  Project belongs to User.  User has many clients through projects.
@@ -17,13 +17,15 @@
 
 [ ] Include Omniauth
 
-[ ] Include validations
+[X] Include validations
     User - validates presence and uniqueness of username and email.
-    Client - validates presence and uniqueness of name.
+    Client - validates presence and uniqueness of company_name.
+    Project - validates presence of name, description and client.
+    Comment - validates presence of content.
 
 [ ] Include one scope method
 
-[ ] Perform CRUD actions on the following models
+[X] Perform CRUD actions on the following models
     - Client
     - Project
     - Comment
