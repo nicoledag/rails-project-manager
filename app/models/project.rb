@@ -6,6 +6,8 @@ class Project < ApplicationRecord
 
   validates :name, :description, :client, presence: true
 
-
+  def format_date
+    target_completion_date.strftime("%m/%d/%Y")
+  end
 
 end
