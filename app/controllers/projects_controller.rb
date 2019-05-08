@@ -7,18 +7,18 @@ class ProjectsController < ApplicationController
 
   def new
     # raise params.inspect
-    if (params[:client_id]) &&  @client = Client.find_by_id(params[:client_id])
+    if (params[:client_id]) && @client = Client.find_by_id(params[:client_id])
       @project = @client.projects.build #adds client id to project.
-      @project.comments.build
+      # @project.comments.build
     else
       @project = Project.new
-      @project.comments.build
+      # @project.comments.build
     end
   end
 
 
   def create
-    # raise params.inspect
+    raise params.inspect
     if (params[:client_id])  #not able to pass client_id through params.
       @client = Client.find(params[:client_id])
     elsif
