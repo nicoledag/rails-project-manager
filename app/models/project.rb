@@ -7,17 +7,19 @@ class Project < ApplicationRecord
   validates :name, :description, :client, presence: true
   validate :target_date_cannot_be_greater_than_completion_date
 
-  STATUS = {
-    :incomplete => 0,
-    :complete => 1
-  }
 
-  def complete?
-    self.status = STATUS[:complete]
+  def self.order_newest
+    self.order(created_at: :desc)
   end
 
-  def incomplete?
-    self.status = STATUS[:incomplete]
+
+  def self.complete
+    # raise params.inspect
+    self.where.not(completion_date: nil)
+end
+
+  def incomplete
+    self.where(completion_date: nil)
   end
 
 
