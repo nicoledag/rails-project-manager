@@ -15,7 +15,7 @@
 [X] Include Authenticationsystem
     -Bcrypt
 
-[ ] Include Omniauth
+[X] Include Omniauth
 
 [X] Include validations
     User - validates presence and uniqueness of username and email.
@@ -23,7 +23,7 @@
     Project - validates presence of name, description and client.
     Comment - validates presence of content.
 
-[ ] Include one scope method
+[X] Include one scope method
 
 [X] Perform CRUD actions on the following models
     - Client
