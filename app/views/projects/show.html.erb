@@ -9,7 +9,10 @@
 <h2>Current User: <%= @project.user.username%></h2>
 <h2>Client Company Name: <%= @project.client.company_name%></h2>
 
+<%= link_to "Edit Project", edit_project_path(@project) %>
+<%= link_to "Delete Project", project_path(@project), method: :delete  %>
 
+<br>
 <br>
 
 <% @project.comments.each do |p| %>
@@ -22,6 +25,3 @@
 <% end %>
 
 <%= link_to "New Comment", new_project_comment_path(@project) %>
-
-<%= link_to "Edit Project", edit_project_path(@project) %>
-<%= link_to "Delete Project", project_path(@project), method: :delete  %>
