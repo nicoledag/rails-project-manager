@@ -7,7 +7,6 @@ class Project < ApplicationRecord
   validates :name, :description, :client, presence: true
   validate :target_date_cannot_be_greater_than_completion_date
 
-
   def self.order_newest
     self.order(created_at: :desc)
   end
