@@ -15,7 +15,7 @@ class Project < ApplicationRecord
 
   def self.complete
     # raise params.inspect
-    self.where.not(completion_date: nil)
+    self.where.not(completion_date: nil).order(created_at: :desc)
 end
 
   def incomplete
