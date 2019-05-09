@@ -8,8 +8,22 @@
 <H2>Here are your Projects</H2>
 
 <br>
+<h1>Completed Projects</h1>
+<% @projects.complete.each do |p| %>
+<h2>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h2>
+<h2>Description: <%= p.description %></h2>
+<h2>Client Name: <%= p.client.company_name %></h2>
+<h2>Target Completion Date: <%= p.format_target_date %></h2>
+<h2>Completion Date: <%= p.format_completed_date %></h2>
+<br>
+<% end %>
 
-<% @projects.each do |p| %>
+<br>
+<br>
+<br>
+
+<h1>All Projects</h1>
+<% @projects.order_newest.each do |p| %>
 <h2>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h2>
 <h2>Description: <%= p.description %></h2>
 <h2>Client Name: <%= p.client.company_name %></h2>
