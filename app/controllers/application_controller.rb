@@ -26,4 +26,12 @@ class ApplicationController < ActionController::Base
     @project.user == current_user
   end
 
+  def set_client_instance_variable_for_redirect
+    @client = @project.client
+  end
+
+  def set_project_instance_variable_for_redirect
+    @project = @comment.project
+  end
+
 end

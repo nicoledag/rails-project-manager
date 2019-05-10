@@ -5,8 +5,11 @@ class Project < ApplicationRecord
   has_many :comments
 
   validates :name, :description, :client, presence: true
-  validate :custom_errors_target_and_completion_dates
+  # validate :custom_errors_target_and_completion_dates
   # Not sure how to add CSS styling to custom errors.
+
+  validate :target_completion_date_cannot_be_empty
+  validate :target_completion_date_cannot_be_greater_than_completion_date
 
   def self.order_newest
     self.order(created_at: :desc)
@@ -23,13 +26,29 @@ end
   end
 
 
-  def custom_errors_target_and_completion_dates
-    # raise params.inspect
+  # def custom_errors_target_and_completion_dates
+  #
+  #   if target_completion_date == nil
+  #     errors.add(:target_completion_date, "can't be empty")
+  #   elsif
+  #     target_completion_date != nil && completion_date != nil && target_completion_date > completion_date
+  #     errors.add(:target_completion_date, "can't be greater than completion date")
+  #   else
+  #     # raise params.inspect
+  #     #implicitly saying else no errors.
+  #   end
+  # end
+
+
+  def target_completion_date_cannot_be_empty
     if target_completion_date == nil
       errors.add(:target_completion_date, "can't be empty")
-    else
-      target_completion_date != nil && completion_date != nil && target_completion_date > completion_date
-      errors.add(:target_completion_date, "can't be greater than completion date")
+    end
+  end
+
+  def target_completion_date_cannot_be_greater_than_completion_date
+    if target_completion_date != nil && completion_date != nil && target_completion_date > completion_date
+    errors.add(:target_completion_date, "can't be greater than completion date")
     end
   end
 
