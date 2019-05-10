@@ -23,8 +23,10 @@ end
 
 
   def target_date_cannot_be_greater_than_completion_date
-    if target_completion_date > completion_date
-      errors.add(:target_completion_date, "can't be greater than completion date")
+    # raise params.inspect
+    if completion_date != nil
+      target_completion_date > completion_date
+      errors.add(:target_completion_date, "can't be empty or greater than completion date")
     end
   end
 
