@@ -1,12 +1,12 @@
-<br>
-<H2>List of All Clients</H2>
-
+<H2>Client List</H2>
 <br>
 
+<ul>
 <% @clients.each do |c| %>
-<h2><%= link_to c.company_name, client_path(c) %> </h2>
+<li><%= link_to c.company_name, client_path(c) %> </li>
 <br>
 
 <% end %>
+</ul>
 
 <%= link_to "Create New Client", new_client_path(@client) %>
