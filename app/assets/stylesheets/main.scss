@@ -57,7 +57,7 @@ html, body {
 .wrapper {
 
   .topnav {
-   background-color: #00c9ff;
+   background-color: #97f1ff;
    overflow: hidden;
    }
 
@@ -70,6 +70,11 @@ html, body {
     text-decoration: none;
     font-size: 17px;
    }
+
+   .topnav a:hover {
+    background-color: #dbe0e2;
+    color: black;
+    }
 
    .topnav .icon {
    display: none;
