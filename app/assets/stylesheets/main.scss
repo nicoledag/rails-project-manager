@@ -1,0 +1,86 @@
+
+// Place all the styles related to the main application controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/.
+
+
+/* --- Reset Styles --- */
+* {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+   background: #fff;
+   -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+   -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+   box-shadow: 0 0 10px rgba(0,0,0,.3);
+   margin: 100px auto;
+   max-width: 960px;
+   padding: 2.25%; /* 18px / 800px */
+   width: 85%;
+ }
+
+ footer.branding {
+     border-top: 2px solid #ccc;
+     margin-top: 20px;
+     padding-top: 20px;
+   }
+
+
+/* --- Field_with_errors --- */
+
+.field_with_errors input[type='text'] {
+ border: 1px solid red;
+}
+
+.field_with_errors input[type='email'] {
+ border: 1px solid red;
+}
+
+.field_with_errors input[type='password'] {
+ border: 1px solid red;
+}
+
+
+/* --- Navigation --- */
+
+/* Add a black background color to the top navigation */
+.topnav {
+ background-color: lightblue;
+ overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+ float: left;
+ display: block;
+ color: black;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+ font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+ background-color: #fcd500;
+ color: black;
+}
+
+/* Add an active class to highlight the current page */
+/*.active {
+ background-color: #fcd500;
+ color: black;
+}*/
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+ display: none;
+}

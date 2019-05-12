@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    
+     <div class="wrapper">
+
     <br>
     <h1>Project Dashboard</h1>
     <br>
@@ -19,7 +20,7 @@
          <a href="<%=root_path%>" class="active">Home</a>
          <a href="<%=new_client_path%>">Add Client</a>
          <a href="<%=clients_path%>">View Clients</a>
-         <a href="<%=projects_path %>">Project Dashboard</a>
+         <a href="<%=projects_path %>">Dashboard</a>
          <a href="<%= new_project_path  %>">Create New Project</a>
          <a href="<%=logout_path%>">Logout</a>
          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -33,9 +34,13 @@
 
     <%= yield %>
 
-    <footer>
+    <footer class="branding">
+        <small>&copy; 2019 <strong>Project Dashboard</strong></small>
+      </footer>
+    </div>
 
-    </footer>
+
+    </div>
 
   </body>
 
