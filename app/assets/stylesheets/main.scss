@@ -4,7 +4,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/.
 
 
-/* --- Reset Styles --- */
+/* --- All Styles --- */
 * {
   list-style: none;
   margin: 0;
@@ -26,6 +26,9 @@ html, body {
    padding: 2.25%; /* 18px / 800px */
    width: 85%;
  }
+
+
+/* --- Footer --- */
 
  footer.branding {
    border-top: 2px solid #ccc;
