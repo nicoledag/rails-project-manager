@@ -28,11 +28,10 @@ html, body {
  }
 
  footer.branding {
-     border-top: 2px solid #ccc;
-     margin-top: 20px;
-     padding-top: 20px;
-   }
-
+   border-top: 2px solid #ccc;
+   margin-top: 20px;
+   padding-top: 20px;
+ }
 
 /* --- Field_with_errors --- */
 
@@ -51,36 +50,26 @@ html, body {
 
 /* --- Navigation --- */
 
-/* Add a black background color to the top navigation */
-.topnav {
- background-color: lightblue;
- overflow: hidden;
-}
+/* Add a background color to the top navigation */
+.wrapper {
 
-/* Style the links inside the navigation bar */
-.topnav a {
- float: left;
- display: block;
- color: black;
- text-align: center;
- padding: 14px 16px;
- text-decoration: none;
- font-size: 17px;
-}
+  .topnav {
+   background-color: #00c9ff;
+   overflow: hidden;
+   }
 
-/* Change the color of links on hover */
-.topnav a:hover {
- background-color: #fcd500;
- color: black;
-}
+   .topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+   }
 
-/* Add an active class to highlight the current page */
-/*.active {
- background-color: #fcd500;
- color: black;
-}*/
+   .topnav .icon {
+   display: none;
+   }
 
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
- display: none;
 }
