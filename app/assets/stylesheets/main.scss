@@ -16,6 +16,10 @@ html, body {
   width: 100%;
 }
 
+body {
+    background: #00c9ff;
+  }
+
 .wrapper {
    background: #fff;
    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -26,6 +30,38 @@ html, body {
    padding: 2.25%; /* 18px / 800px */
    width: 85%;
  }
+
+
+/* --- Navigation --- */
+
+/* Add a background color to the top navigation */
+.wrapper {
+
+  .topnav {
+   background-color: #dbe0e2;
+   overflow: hidden;
+   }
+
+   .topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+   }
+
+   .topnav a:hover {
+    background-color: #f0f306;
+    color: black;
+    }
+
+   .topnav .icon {
+   display: none;
+   }
+
+}
 
 
 /* --- Footer --- */
@@ -48,36 +84,4 @@ html, body {
 
 .field_with_errors input[type='password'] {
  border: 1px solid red;
-}
-
-
-/* --- Navigation --- */
-
-/* Add a background color to the top navigation */
-.wrapper {
-
-  .topnav {
-   background-color: #97f1ff;
-   overflow: hidden;
-   }
-
-   .topnav a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-   }
-
-   .topnav a:hover {
-    background-color: #dbe0e2;
-    color: black;
-    }
-
-   .topnav .icon {
-   display: none;
-   }
-
 }
