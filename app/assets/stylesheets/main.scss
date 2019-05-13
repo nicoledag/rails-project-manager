@@ -156,3 +156,12 @@ h1 {
     text-align: left;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: auto;
+  }
+}
