@@ -7,25 +7,42 @@
 <br>
 <br>
 
-<div class="container">
 
-<h2>Completed Projects</h2>
-<% @projects.complete.each do |p| %>
-<h2>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h2>
-<h2>Description: <%= p.description %></h2>
-<h2>Client Name: <%= link_to p.client.company_name, client_path(p.client) %></h2>
-<h2>Target Completion Date: <%= p.format_target_date %></h2>
-<h2>Completion Date: <%= p.format_completed_date %></h2>
-<br>
-<% end %>
+<div class="flex">
 
+  <div class="format">
+    <h2>Completed Projects</h2>
+    <% @projects.complete.each do |p| %>
+    <h4>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h4>
+    <h4>Description: <%= p.description %></h4>
+    <h4>Client Name: <%= link_to p.client.company_name, client_path(p.client) %></h4>
+    <h4>Target Completion Date: <%= p.format_target_date %></h4>
+    <h4>Completion Date: <%= p.format_completed_date %></h4>
+    <br>
+    <% end %>
+  </div>
+
+  <div class="format">
+    <h2>Completed Projects</h2>
+    <% @projects.complete.each do |p| %>
+    <h4>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h4>
+    <h4>Description: <%= p.description %></h4>
+    <h4>Client Name: <%= link_to p.client.company_name, client_path(p.client) %></h4>
+    <h4>Target Completion Date: <%= p.format_target_date %></h4>
+    <h4>Completion Date: <%= p.format_completed_date %></h4>
+    <br>
+    <% end %>
+  </div>
 
 </div>
 
-<br>
-<br>
-<br>
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
