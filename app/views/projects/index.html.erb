@@ -8,12 +8,12 @@
 <br>
 
 <div class="container">
-  
+
 <h2>Completed Projects</h2>
 <% @projects.complete.each do |p| %>
 <h2>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h2>
 <h2>Description: <%= p.description %></h2>
-<h2>Client Name: <%= p.client.company_name %></h2>
+<h2>Client Name: <%= link_to p.client.company_name, client_path(p.client) %></h2>
 <h2>Target Completion Date: <%= p.format_target_date %></h2>
 <h2>Completion Date: <%= p.format_completed_date %></h2>
 <br>
@@ -47,7 +47,7 @@
       <tr>
        <td><%= link_to p.name, client_project_path(p.client, p) %></td>
        <td><%= p.description %></td>
-       <td><%= p.client.company_name %></td>
+       <td><%= link_to p.client.company_name, client_path(p.client) %></td>
        <td><%= p.format_target_date %></td>
        <td><%= p.format_completed_date %></td>
      </tr>
