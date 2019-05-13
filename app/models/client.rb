@@ -5,6 +5,7 @@ class Client < ApplicationRecord
 
   validates :company_name, presence: true
   validates_uniqueness_of :company_name, :case_sensitive => false
+  validates :zip, length: { minimum: 5 }
 
 
 
