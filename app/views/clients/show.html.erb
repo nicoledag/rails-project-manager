@@ -1,27 +1,29 @@
 <h2>Client</h2>
 <br>
-<table id="client">
-  <tr>
-    <th>Company Name</th>
-    <th>Contact Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Street Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-  </tr>
-  <tr>
-   <td><%=@client.company_name%></td>
-   <td><%=@client.contact_name%></td>
-   <td><%=@client.email%></td>
-   <td><%=@client.phone%></td>
-   <td><%=@client.street_address%></td>
-   <td><%=@client.city%></td>
-   <td><%=@client.state%></td>
-   <td><%=@client.zip%></td>
- </tr>
-</table>
+<div style="overflow-x:auto;">
+  <table id="table">
+    <tr>
+      <th>Company Name</th>
+      <th>Contact Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Street Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+    </tr>
+    <tr>
+     <td><%=@client.company_name%></td>
+     <td><%=@client.contact_name%></td>
+     <td><%=@client.email%></td>
+     <td><%=@client.phone%></td>
+     <td><%=@client.street_address%></td>
+     <td><%=@client.city%></td>
+     <td><%=@client.state%></td>
+     <td><%=@client.zip%></td>
+   </tr>
+  </table>
+</div>
 <br>
 <h4><%= link_to "Edit Client", edit_client_path(@client) %></h4>
 <br>

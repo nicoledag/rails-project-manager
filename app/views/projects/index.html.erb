@@ -27,23 +27,24 @@
 
 <br>
 <% @projects.order_newest.each do |p| %>
-
-<table id="client">
-  <tr>
-    <th>Project Name</th>
-    <th>Description</th>
-    <th>Client Name</th>
-    <th>Target Completion Date</th>
-    <th>Completion Date</th>
-  </tr>
-  <tr>
-   <td><%= link_to p.name, client_project_path(p.client, p) %></td>
-   <td><%= p.description %></td>
-   <td><%= p.client.company_name %></td>
-   <td><%= p.format_target_date %></td>
-   <td><%= p.format_completed_date %></td>
- </tr>
-</table>
+<div style="overflow-x:auto;">
+  <table id="table">
+    <tr>
+      <th>Project Name</th>
+      <th>Description</th>
+      <th>Client Name</th>
+      <th>Target Completion Date</th>
+      <th>Completion Date</th>
+    </tr>
+    <tr>
+     <td><%= link_to p.name, client_project_path(p.client, p) %></td>
+     <td><%= p.description %></td>
+     <td><%= p.client.company_name %></td>
+     <td><%= p.format_target_date %></td>
+     <td><%= p.format_completed_date %></td>
+   </tr>
+  </table>
+</div>
 
 
 <% end %>
