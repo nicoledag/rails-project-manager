@@ -7,18 +7,18 @@
       <th>Project Name</th>
       <th>Description</th>
       <th>Client Name</th>
+      <th>Manager</th>
       <th>Target Completion Date</th>
       <th>Completion Date</th>
-      <th>Manager</th>
       <th>Edit</th>
       <th>Delete</th>
-
     </tr>
+
     <tr>
      <td><%= @project.name%></td>
      <td><%= @project.description%></td>
      <td><%= @project.client.company_name%></td>
-     <td><%=@project.user.username%></td>
+     <td><%= @project.user.username%></td>
      <td><%= @project.format_target_date%></td>
      <td><%= @project.format_completed_date%></td>
      <td><%= link_to "Edit Project", edit_project_path(@project) %></td>
@@ -30,14 +30,28 @@
 <br>
 <br>
 
-
-<% @project.comments.each do |p| %>
-<h2>Date Created: <%=  p.created_at %>
-<h2>Comment: <%= p.content%> </h2>
-<%= link_to "Edit Comment", edit_comment_path(p) %>
-<%= link_to "Delete Comment", comment_path(p), method: :delete  %>
+<h2>Project Comments</h2>
 <br>
-<br>
-<% end %>
-
 <%= link_to "New Comment", new_project_comment_path(@project) %>
+<br>
+<br>
+
+<div style="overflow-x:auto;">
+  <table id="table">
+    <tr>
+      <th>Date Created</th>
+      <th>Comment</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+    </tr>
+    <tr>
+      <% @project.comments.each do |p| %>
+     <td><%=  p.created_at %></td>
+     <td><%= p.content%></td>
+     <td><%= link_to "Edit Comment", edit_comment_path(p) %></td>
+     <td><%= link_to "Delete Comment", comment_path(p), method: :delete  %></td>
+      <% end %>
+   </tr>
+  </table>
+</div>
