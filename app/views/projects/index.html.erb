@@ -1,17 +1,11 @@
 
 <h2>Welcome <%=current_user.capitalize%></h2>
 <br>
-<br>
-<h3><%= link_to "Create New Project", new_project_path(@project) %></h3>
-
-<br>
-<br>
-
 
 <div class="flex">
 
   <div class="format">
-    <h2>Completed Projects</h2>
+    <h2>Last 5 Completed Projects</h2>
 
     <table id="table" class="complete">
       <tr>
@@ -35,7 +29,7 @@
 
 
   <div class="format">
-    <h2>Completed Projects</h2>
+    <h2>Projects By Client</h2>
     <% @projects.complete.each do |p| %>
     <h4>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h4>
     <h4>Description: <%= p.description %></h4>
@@ -51,6 +45,8 @@
 
 <h2>All Projects</h2>
 
+<br>
+<h3><%= link_to "Create New Project", new_project_path(@project) %></h3>
 <br>
 
 <div style="overflow-x:auto;">
