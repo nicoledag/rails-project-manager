@@ -1,13 +1,25 @@
 <H2>Client List</H2>
 <br>
 
+
 <%= select_tag "company_name", options_from_collection_for_select(@clients, "company_name", "company_name") %><br><br>
-<ul>
-<% @clients.each do |c| %>
-<li><%= link_to c.company_name, client_path(c) %> </li>
+
+<div style="overflow-x:auto;">
+   <div class="scrollit">
+    <table id="table">
+      <tr>
+        <th>Company Name</th>
+      </tr>
+      <% @clients.each do |c| %>
+      <tr>
+       <td><%= link_to c.company_name, client_path(c) %> </td>
+     </tr>
+     <% end %>
+    </table>
+  </div>
+</div>
+
 <br>
 
-<% end %>
-</ul>
 
 <%= link_to "Create New Client", new_client_path(@client) %>
