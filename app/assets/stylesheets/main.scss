@@ -32,9 +32,8 @@ body {
   }
 
 
-/* --- Navigation --- */
+/* --- Main Section Wrapper --- */
 
-/* Add a background color to the top navigation */
 .wrapper {
 
   background: #fff;
@@ -46,12 +45,15 @@ body {
   padding: 2.25%; /* 18px / 800px */
   width: 85%;
 
+}
+
+/* --- Navigation --- */
+
   .topnav {
    background-color: #dbe0e2;
    overflow: hidden;
-   }
 
-   .topnav a {
+   a {
     float: left;
     display: block;
     color: black;
@@ -61,16 +63,17 @@ body {
     font-size: 1.2rem;
    }
 
-   .topnav a:hover {
+   a:hover {
     background-color: #7c6cfa;
     color: white;
     }
 
-   .topnav .icon {
-   display: none;
+    .icon {
+    display: none;
+    }
+
    }
 
-}
 
 
 /* --- Footer --- */

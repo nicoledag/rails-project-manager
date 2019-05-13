@@ -1,14 +1,12 @@
 
 <h2>Welcome <%=current_user.capitalize%></h2>
 <br>
-<h2><%= link_to "Create New Project", new_project_path(@project) %></h2>
+<br>
+<h3><%= link_to "Create New Project", new_project_path(@project) %></h3>
 
 <br>
-
-<H2>Here are your Projects</H2>
-
 <br>
-<h1>Completed Projects</h1>
+<h2>Completed Projects</h2>
 <% @projects.complete.each do |p| %>
 <h2>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h2>
 <h2>Description: <%= p.description %></h2>
@@ -25,7 +23,8 @@
 
 
 
-<h1>All Projects</h1>
+<h2>All Projects</h2>
+
 <br>
 <% @projects.order_newest.each do |p| %>
 
