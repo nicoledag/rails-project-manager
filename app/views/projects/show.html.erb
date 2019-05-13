@@ -37,14 +37,15 @@
 <br>
 
 <div style="overflow-x:auto;">
+  <div class="scrollit">
   <table id="table">
     <tr>
       <th>Date Created</th>
       <th>Comment</th>
       <th>Edit</th>
       <th>Delete</th>
-
     </tr>
+
     <% @project.comments.each do |p| %>
     <tr>
      <td><%=  p.format_date_created %></td>
@@ -54,4 +55,5 @@
    </tr>
    <% end %>
   </table>
+  </div>
 </div>
