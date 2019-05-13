@@ -1,22 +1,35 @@
-<h2>Newly Created Project</h2>
-
+<h2>Project</h2>
 <br>
 
-<h2>Project Name: <%= @project.name%></h2>
-<h2>Project Description: <%= @project.description%></h2>
-<h2>Target Completion Date: <%= @project.format_target_date%></h2>
-<h2>Completion Date: <%= @project.format_completed_date%></h2>
+<div style="overflow-x:auto;">
+  <table id="table">
+    <tr>
+      <th>Project Name</th>
+      <th>Description</th>
+      <th>Client Name</th>
+      <th>Target Completion Date</th>
+      <th>Completion Date</th>
+      <th>Manager</th>
+      <th>Edit</th>
+      <th>Delete</th>
 
-
-<h2>Current User: <%= @project.user.username%></h2>
-<h2>Client Company Name: <%= @project.client.company_name%></h2>
-
-
-<%= link_to "Edit Project", edit_project_path(@project) %>
-<%= link_to "Delete Project", project_path(@project), method: :delete  %>
+    </tr>
+    <tr>
+     <td><%= @project.name%></td>
+     <td><%= @project.description%></td>
+     <td><%= @project.client.company_name%></td>
+     <td><%=@project.user.username%></td>
+     <td><%= @project.format_target_date%></td>
+     <td><%= @project.format_completed_date%></td>
+     <td><%= link_to "Edit Project", edit_project_path(@project) %></td>
+     <td><%= link_to "Delete Project", project_path(@project), method: :delete  %></td>
+   </tr>
+  </table>
+</div>
 
 <br>
 <br>
+
 
 <% @project.comments.each do |p| %>
 <h2>Date Created: <%=  p.created_at %>

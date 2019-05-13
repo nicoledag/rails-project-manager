@@ -26,7 +26,7 @@
 <h2>All Projects</h2>
 
 <br>
-<% @projects.order_newest.each do |p| %>
+
 <div style="overflow-x:auto;">
   <table id="table">
     <tr>
@@ -36,6 +36,7 @@
       <th>Target Completion Date</th>
       <th>Completion Date</th>
     </tr>
+    <% @projects.order_newest.each do |p| %>
     <tr>
      <td><%= link_to p.name, client_project_path(p.client, p) %></td>
      <td><%= p.description %></td>
@@ -43,8 +44,6 @@
      <td><%= p.format_target_date %></td>
      <td><%= p.format_completed_date %></td>
    </tr>
+   <% end %>
   </table>
 </div>
-
-
-<% end %>
