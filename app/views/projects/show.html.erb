@@ -47,7 +47,7 @@
     </tr>
     <tr>
       <% @project.comments.each do |p| %>
-     <td><%=  p.created_at %></td>
+     <td><%=  p.format_date_created %></td>
      <td><%= p.content%></td>
      <td><%= link_to "Edit Comment", edit_comment_path(p) %></td>
      <td><%= link_to "Delete Comment", comment_path(p), method: :delete  %></td>
