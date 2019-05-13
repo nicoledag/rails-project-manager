@@ -9,15 +9,16 @@ class CommentsController < ApplicationController
 
   def create
     # raise params.inspect
+
     @project = Project.find(params[:comment][:project_id])
     set_client_instance_variable_for_redirect
-    @comment = @project.comments.create(comment_params)
-
+    if project_user_equals_current_user && @comment = @project.comments.create(comment_params)
       if @comment.save
         redirect_to client_project_path(@client, @project)
       else
         render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
       end
+    end
   end
 
   def edit
@@ -58,7 +59,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  
+
 
   def comment_params
     params.require(:comment).permit(:content)
