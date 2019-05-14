@@ -1,7 +1,8 @@
 <H2>Client List</H2>
 
+<% if current_user.admin %>
 <h3><%= link_to "Create New Client", new_client_path(@client) %></h3>
-
+<% end%>
 
 <%= select_tag "company_name", options_from_collection_for_select(@clients, "company_name", "company_name") %><br><br>
 

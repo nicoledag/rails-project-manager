@@ -1,9 +1,17 @@
-
 <h2>Welcome <%=current_user.capitalize%></h2>
+
+<div class= "italic">
+  <% if current_user.admin%>
+    <h3>ADMIN</h3>
+  <%end%>
+</div>
+
 <h3><%= link_to "Create New Project", new_project_path(@project) %></h3>
 <br>
 
+<div class="center">
 <h2>Open Projects</h2>
+</div>
 
 <div style="overflow-x:auto;">
   <div class="scrollit">
