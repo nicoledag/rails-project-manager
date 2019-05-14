@@ -4,46 +4,32 @@
 
 <h2>Last Project Updated</h2>
 
+<br>
 
-<div class="flex">
-
-  <div class="format">
     <h2>Last 5 Completed Projects</h2>
 
-    <table id="table" class="complete">
-      <tr>
-        <th>Project Name</th>
-        <th>Description</th>
-        <th>Client Name</th>
-        <th>Target Completion Date</th>
-        <th>Completion Date</th>
-      </tr>
-     <% @projects.complete.each do |p| %>
-      <tr>
-       <td><%= link_to p.name, client_project_path(p.client, p) %></td>
-       <td><%= p.description %></td>
-       <td><%= link_to p.client.company_name, client_path(p.client) %></td>
-       <td><%= p.format_target_date %></td>
-       <td><%= p.format_completed_date %></td>
-     </tr>
-     <% end %>
-    </table>
-  </div>
+        <table id="table">
+          <tr>
+            <th>Project Name</th>
+            <th>Description</th>
+            <th>Client Name</th>
+            <th>Target Completion Date</th>
+            <th>Completion Date</th>
+          </tr>
+         <% @projects.complete.each do |p| %>
+          <tr>
+           <td><%= link_to p.name, client_project_path(p.client, p) %></td>
+           <td><%= p.description %></td>
+           <td><%= link_to p.client.company_name, client_path(p.client) %></td>
+           <td><%= p.format_target_date %></td>
+           <td><%= p.format_completed_date %></td>
+         </tr>
+         <% end %>
+        </table>
 
+<br>
+<br>
 
-  <div class="format">
-    <h2>Projects By Client</h2>
-    <% @projects.complete.each do |p| %>
-    <h4>Project Name: <%= link_to p.name, client_project_path(p.client, p) %></h4>
-    <h4>Description: <%= p.description %></h4>
-    <h4>Client Name: <%= link_to p.client.company_name, client_path(p.client) %></h4>
-    <h4>Target Completion Date: <%= p.format_target_date %></h4>
-    <h4>Completion Date: <%= p.format_completed_date %></h4>
-    <br>
-    <% end %>
-  </div>
-
-</div>
 
 
 <h2>All Projects</h2>
