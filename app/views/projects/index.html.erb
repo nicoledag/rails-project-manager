@@ -1,9 +1,34 @@
 
 <h2>Welcome <%=current_user.capitalize%></h2>
+<h3><%= link_to "Create New Project", new_project_path(@project) %></h3>
+<br>
 
+<h2>Last 5 Projects Updated</h2>
 
-<h2>Last Project Updated</h2>
+<div style="overflow-x:auto;">
+  <div class="scrollit">
+    <table id="table">
+      <tr>
+        <th>Project Name</th>
+        <th>Description</th>
+        <th>Client Name</th>
+        <th>Target Completion Date</th>
+        <th>Completion Date</th>
+      </tr>
+     <% @projects.incomplete.each do |p| %>
+      <tr>
+       <td><%= link_to p.name, client_project_path(p.client, p) %></td>
+       <td><%= p.description %></td>
+       <td><%= link_to p.client.company_name, client_path(p.client) %></td>
+       <td><%= p.format_target_date %></td>
+       <td><%= p.format_completed_date %></td>
+     </tr>
+     <% end %>
+    </table>
+   </div>
+</div>
 
+<br>
 <br>
 
     <h2>Completed Projects</h2>
@@ -38,7 +63,6 @@
 
 <h2>All Projects</h2>
 
-<h3><%= link_to "Create New Project", new_project_path(@project) %></h3>
 
 
 <div style="overflow-x:auto;">

@@ -20,26 +20,12 @@ class Project < ApplicationRecord
 
   def self.complete
     # raise params.inspect
-    self.where.not(completion_date: nil).order(completion_date: :asc)
-end
-
-  def incomplete
-    self.where(completion_date: nil)
+    self.where.not(completion_date: nil).order(completion_date: :desc)
   end
 
-
-  # def custom_errors_target_and_completion_dates
-  #
-  #   if target_completion_date == nil
-  #     errors.add(:target_completion_date, "can't be empty")
-  #   elsif
-  #     target_completion_date != nil && completion_date != nil && target_completion_date > completion_date
-  #     errors.add(:target_completion_date, "can't be greater than completion date")
-  #   else
-  #     # raise params.inspect
-  #     #implicitly saying else no errors.
-  #   end
-  # end
+  def self.incomplete
+    self.where(completion_date: nil).order(target_completion_date: :asc)
+  end
 
 
   def target_completion_date_cannot_be_empty
