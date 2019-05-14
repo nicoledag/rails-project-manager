@@ -10,7 +10,7 @@
       <tr>
         <th>Company Name</th>
       </tr>
-      <% @clients.each do |c| %>
+      <% @clients.alphabetical.each do |c| %>
       <tr>
        <td><%= link_to c.company_name, client_path(c) %> </td>
      </tr>

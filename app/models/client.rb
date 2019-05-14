@@ -8,5 +8,8 @@ class Client < ApplicationRecord
   validates :zip, length: { minimum: 5 }
 
 
+  def self.alphabetical
+    self.order(:company_name)
+  end
 
 end
