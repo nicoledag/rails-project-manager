@@ -8,15 +8,12 @@ class Project < ApplicationRecord
   # validate :custom_errors_target_and_completion_dates
   # Not sure how to add CSS styling to custom errors.
 
-
-
   validate :target_completion_date_cannot_be_empty
   validate :target_completion_date_cannot_be_greater_than_completion_date
 
   def self.order_newest
     self.order(created_at: :desc)
   end
-
 
   def self.complete
     # raise params.inspect
@@ -26,7 +23,6 @@ class Project < ApplicationRecord
   def self.incomplete
     self.where(completion_date: nil).order(target_completion_date: :asc)
   end
-
 
   def target_completion_date_cannot_be_empty
     if target_completion_date == nil

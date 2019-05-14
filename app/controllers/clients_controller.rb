@@ -10,11 +10,13 @@ class ClientsController < ApplicationController
 
   def create
     # raise params.inspect
-    @client = Client.create(client_params)
-    if @client.save
-      redirect_to client_path(@client)
-    else
-      render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
+    if current_user.admin
+      @client = Client.create(client_params)
+      if @client.save
+        redirect_to client_path(@client)
+      else
+        render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
+      end
     end
   end
 
@@ -29,18 +31,22 @@ class ClientsController < ApplicationController
   end
 
   def update
-    set_client
-    if @client.update(client_params)
-      redirect_to client_path(@client)
-    else
-      render :edit #allows for field with errors.
+    if current_user.admin
+      set_client
+      if @client.update(client_params)
+        redirect_to client_path(@client)
+      else
+        render :edit #allows for field with errors.
+      end
     end
   end
 
   def destroy
-    set_client
-    @client.destroy
-    redirect_to clients_path
+    if current_user.admin
+      set_client
+      @client.destroy
+      redirect_to clients_path
+    end
   end
 
 

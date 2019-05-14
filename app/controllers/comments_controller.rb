@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
 
   def create
     # raise params.inspect
-
     @project = Project.find(params[:comment][:project_id])
     set_client_instance_variable_for_redirect
     if project_user_equals_current_user && @comment = @project.comments.create(comment_params)
@@ -58,8 +57,6 @@ class CommentsController < ApplicationController
       redirect_to projects_path
     end
   end
-
-
 
   def comment_params
     params.require(:comment).permit(:content)
