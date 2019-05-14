@@ -16,7 +16,6 @@ class User < ApplicationRecord
     end
   end
 
-
   def capitalize
     self.username.capitalize
   end
