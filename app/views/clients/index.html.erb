@@ -1,6 +1,8 @@
 <H2>Client List</H2>
 
-
+<%= link_to "Create New Client", new_client_path(@client) %>
+<br>
+<br>
 
 <%= select_tag "company_name", options_from_collection_for_select(@clients, "company_name", "company_name") %><br><br>
 
@@ -18,8 +20,3 @@
     </table>
   </div>
 </div>
-
-<br>
-
-
-<%= link_to "Create New Client", new_client_path(@client) %>
