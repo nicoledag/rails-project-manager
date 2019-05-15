@@ -13,15 +13,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     if auth_hash = request.env["omniauth.auth"]
       @user = User.find_or_create_by_omniauth(auth_hash)
       set_session_and_redirect
-
     else
       @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password])
-        set_session_and_redirect
+      if @user && @user.authenticate(params[:password])
+      set_session_and_redirect
       else
         redirect_to login_path  #does not allow for field w/errors and does not keep data.
       end
