@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   def index
     # raise params.inspect
     @projects = current_user.projects
-    @clients = Client.all
   end
 
   def new
