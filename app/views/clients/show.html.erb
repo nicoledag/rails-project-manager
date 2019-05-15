@@ -14,8 +14,9 @@
       <% if current_user.admin %>
       <th>Edit</th>
       <th>Delete</th>
+      <%end %>
       <th>Create New Project</th>
-       <%end %>
+
     </tr>
     <tr>
      <td><%=@client.company_name%></td>
@@ -29,8 +30,9 @@
      <% if current_user.admin %>
      <td><%= link_to "Edit Client", edit_client_path(@client) %></td>
      <td><%= link_to "Delete Client", client_path(@client), method: :delete  %></td>
-     <td><%= link_to "Create New Project", new_client_project_path(@client) %></td>
      <%end %>
+     <td><%= link_to "Create New Project", new_client_project_path(@client) %></td>
+
    </tr>
   </table>
 </div>
