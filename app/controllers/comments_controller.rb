@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
       # raise params.inspect
     if (params[:project_id]) && @project = Project.find_by_id(params[:project_id])
       @comment = @project.comments.build
+    else
+      redirect_to projects_path
     end
   end
 
