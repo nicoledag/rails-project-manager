@@ -8,9 +8,14 @@ class Project < ApplicationRecord
   validate :target_completion_date_cannot_be_empty
   validate :target_completion_date_cannot_be_greater_than_completion_date
 
-  def self.order_newest
-    self.order(created_at: :desc)
-  end
+
+# scope :red, -> { where(color: 'red') }
+
+  # def self.order_newest
+  #   self.order(created_at: :desc)
+  # end
+
+  scope :order_newest, -> { order(created_at: :desc)}
 
   def self.complete
     # raise params.inspect
