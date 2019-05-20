@@ -5,8 +5,6 @@ class Project < ApplicationRecord
   has_many :comments
 
   validates :name, :description, :client, presence: true
-
-  # Not sure how to add CSS styling to custom errors.
   validate :target_completion_date_cannot_be_empty
   validate :target_completion_date_cannot_be_greater_than_completion_date
 
