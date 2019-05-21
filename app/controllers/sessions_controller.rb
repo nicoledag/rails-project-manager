@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:password])
       set_session_and_redirect
       else
-        redirect_to login_path  #does not allow for field w/errors and does not keep data.
+        redirect_to login_path  #Does not allow for field w/errors and does not keep data.
+        #not rendering log in for extra security.  User needs to reenter information.
       end
     end
   end
