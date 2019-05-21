@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
 
+  before_action :set_client, only: [:show, :edit, :update, :destroy]
+
   def index
     @clients = Client.all
   end
@@ -22,28 +24,22 @@ class ClientsController < ApplicationController
 
   def show
     # raise params.inspect
-    set_client
   end
 
   def edit
     # raise params.inspect
-    set_client
   end
 
   def update
-    if current_user.admin
-      set_client
-      if @client.update(client_params)
+    if current_user.admin && @client.update(client_params)
         redirect_to client_path(@client)
-      else
+    else
         render :edit #allows for field with errors.
-      end
     end
   end
 
   def destroy
     if current_user.admin
-      set_client
       @client.destroy
       redirect_to clients_path
     end
