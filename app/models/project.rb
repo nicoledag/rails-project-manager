@@ -4,16 +4,12 @@ class Project < ApplicationRecord
   belongs_to :client
   has_many :comments
 
-  validates :name, :description, :client, presence: true
-  validate :target_completion_date_cannot_be_empty
+  validates :name, :description, :client, :target_completion_date, presence: true
   validate :target_completion_date_cannot_be_greater_than_completion_date
+  validate :completion_date_cannot_greater_than_current_date
 
 
 # scope :red, -> { where(color: 'red') }
-
-  # def self.order_newest
-  #   self.order(created_at: :desc)
-  # end
 
   scope :order_newest, -> { order(created_at: :desc)}
 
@@ -26,9 +22,9 @@ class Project < ApplicationRecord
     self.where(completion_date: nil).order(target_completion_date: :asc)
   end
 
-  def target_completion_date_cannot_be_empty
-    if target_completion_date == nil
-      errors.add(:target_completion_date, "can't be empty")
+  def completion_date_cannot_greater_than_current_date
+    if completion_date > DateTime.now
+      errors.add(:completion_date, "cannot be greater than current date")
     end
   end
 
