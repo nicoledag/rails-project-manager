@@ -14,7 +14,7 @@ class Project < ApplicationRecord
 
 
   def completion_date_cannot_be_greater_than_current_date
-    if completion_date > DateTime.now
+    if completion_date != nil && completion_date > DateTime.now
       errors.add(:completion_date, "cannot be greater than current date")
     end
   end
