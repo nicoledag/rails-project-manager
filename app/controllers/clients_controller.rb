@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
   def create
     # raise params.inspect
     if current_user.admin
-      @client = Client.create(client_params)
+      @client = Client.new(client_params)
       if @client.save
         redirect_to client_path(@client)
       else
