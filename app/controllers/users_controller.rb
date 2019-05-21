@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def create
     # raise params.inspect
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to projects_path     #projects/index page
