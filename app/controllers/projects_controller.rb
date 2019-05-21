@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
 
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
+
   def index
-    # raise params.inspect
     @projects = current_user.projects
   end
 
   def new
-    # raise params.inspect
     if (params[:client_id]) && @client = Client.find_by_id(params[:client_id])
       @project = @client.projects.build #adds client id to project.
     else
@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @project = current_user.projects.build(project_params)
       if @project.save
         redirect_to client_project_path(@project.client, @project)
@@ -25,18 +24,14 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # raise params.inspect
-    set_project
+
   end
 
   def edit
-    # raise params.inspect
-    set_project
+
   end
 
   def update
-    # raise params.inspect
-    set_project
     if project_user_equals_current_user && @project.update(project_params)
       redirect_to project_path(@project)
     else
@@ -45,7 +40,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy  #If I delete a project then I need to delete associated projects otherwise the comment will attach to a newly created project???
-    set_project
     if project_user_equals_current_user
       @project.destroy
       redirect_to projects_path
