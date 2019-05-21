@@ -1,4 +1,9 @@
 <h2>New Project</h2>
 
+<% if @client %>
+<h3>Company Name: <%=@project.client.company_name%></h3>
+<% end %>
+
+
 
 <%= render 'form' %>
