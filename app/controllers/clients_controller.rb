@@ -11,7 +11,6 @@ class ClientsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     if current_user.admin
       @client = Client.new(client_params)
       if @client.save
@@ -23,11 +22,11 @@ class ClientsController < ApplicationController
   end
 
   def show
-    # raise params.inspect
+
   end
 
   def edit
-    # raise params.inspect
+  
   end
 
   def update

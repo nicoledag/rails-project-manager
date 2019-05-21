@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   before_action :project_comment, only: [:update, :destroy]
 
   def new
-      # raise params.inspect
     if (params[:project_id]) && @project = Project.find_by_id(params[:project_id])
       @comment = @project.comments.build
     else
@@ -13,7 +12,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @project = Project.find(params[:comment][:project_id])  #Project already exists..not building new project so not passing project_id through params.
      if project_user_equals_current_user && @comment = @project.comments.build(comment_params)
       if @comment.save
@@ -25,11 +23,10 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    # raise params.inspect
+
   end
 
   def update
-    # raise params.inspect
       if project_user_equals_current_user && @comment.update(comment_params)
         redirect_to client_project_path(@project.client, @project)
       else
@@ -38,7 +35,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    # raise params.inspect
       if project_user_equals_current_user
         @comment.destroy
         redirect_to client_project_path(@project.client, @project)
