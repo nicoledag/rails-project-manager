@@ -6,23 +6,14 @@ class Project < ApplicationRecord
 
   validates :name, :description, :client, :target_completion_date, presence: true
   validate :target_completion_date_cannot_be_greater_than_completion_date
-  validate :completion_date_cannot_greater_than_current_date
-
-
-# scope :red, -> { where(color: 'red') }
+  validate :completion_date_cannot_be_greater_than_current_date
 
   scope :order_newest, -> { order(created_at: :desc)}
+  scope :complete, -> { where.not(completion_date: nil).order(completion_date: :desc) }
+  scope :incomplete, -> { where(completion_date: nil).order(target_completion_date: :asc)}
 
-  def self.complete
-    # raise params.inspect
-    self.where.not(completion_date: nil).order(completion_date: :desc)
-  end
 
-  def self.incomplete
-    self.where(completion_date: nil).order(target_completion_date: :asc)
-  end
-
-  def completion_date_cannot_greater_than_current_date
+  def completion_date_cannot_be_greater_than_current_date
     if completion_date > DateTime.now
       errors.add(:completion_date, "cannot be greater than current date")
     end
