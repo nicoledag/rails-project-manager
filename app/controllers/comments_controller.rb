@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   def create
     # raise params.inspect
     @project = Project.find(params[:comment][:project_id])  #Project already exists..not building new project so not passing project_id through params.
-     if project_user_equals_current_user && @comment = @project.comments.create(comment_params)
+     if project_user_equals_current_user && @comment = @project.comments.build(comment_params)
       if @comment.save
         # set_client_instance_variable
         redirect_to client_project_path(@project.client, @project)

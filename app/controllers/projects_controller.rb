@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy  #If I delete a project then I need to delete associated projects otherwise the comment will attach to a newly created project???
     set_project
     if project_user_equals_current_user
       @project.destroy
