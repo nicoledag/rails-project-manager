@@ -18,7 +18,6 @@ class ProjectsController < ApplicationController
     # raise params.inspect
     @project = current_user.projects.build(project_params)
       if @project.save
-        # set_client_instance_variable
         redirect_to client_project_path(@project.client, @project)
       else
         render :new  #does not request a new get request.  lets us call field w/errors.  Keeps inputted data.  #renders users/new form.

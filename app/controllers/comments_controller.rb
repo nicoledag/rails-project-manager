@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
     @project = Project.find(params[:comment][:project_id])  #Project already exists..not building new project so not passing project_id through params.
      if project_user_equals_current_user && @comment = @project.comments.build(comment_params)
       if @comment.save
-        # set_client_instance_variable
         redirect_to client_project_path(@project.client, @project)
       else
         render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
@@ -32,8 +31,7 @@ class CommentsController < ApplicationController
     set_comment
     set_project_instance_variable
       if project_user_equals_current_user && @comment.update(comment_params)
-        set_client_instance_variable
-        redirect_to client_project_path(@client, @project)
+        redirect_to client_project_path(@project.client, @project)
       else
         render :edit #allows for field with errors.
       end
@@ -45,8 +43,7 @@ class CommentsController < ApplicationController
     set_project_instance_variable
       if project_user_equals_current_user
         @comment.destroy
-        set_client_instance_variable
-        redirect_to client_project_path(@client, @project)
+        redirect_to client_project_path(@project.client, @project)
       end
   end
 
