@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
       if @project.save
         redirect_to client_project_path(@project.client, @project)
       else
-        render :new  #does not request a new get request.  lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
+        render :new  #does not send a new get request.  lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
       end
   end
 
