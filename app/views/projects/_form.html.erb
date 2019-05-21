@@ -3,6 +3,14 @@
 
  <%= render partial: 'layouts/errors', locals: {object: @project} %>
 
+  <% if !params[:client_id]%>
+  <%= f.label :client_id, "Select a Client" %>
+  <%= f.collection_select :client_id, Client.all, :id, :company_name, prompt: true %><br>
+  <% else %>
+  <%= f.hidden_field :client_id, :value => @client.id %>
+  <% end %>
+
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -14,15 +22,6 @@
 
   <%= f.label :completion_date%>
   <%= f.date_field :completion_date%>
-
-  <br>
-  <% if !params[:client_id]%>
-  <%= f.label :client_id, "Select a Client" %>
-  <%= f.collection_select :client_id, Client.all, :id, :company_name, prompt: true %>
-  <% else %>
-    <%= f.hidden_field :client_id, :value => @client.id %>
-  <% end %>
-
 
   <%= f.submit "Submit" %>
 <% end %>
