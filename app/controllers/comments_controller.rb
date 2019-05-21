@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
 
+  before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :project_comment, only: [:update, :destroy]
+
   def new
       # raise params.inspect
     if (params[:project_id]) && @project = Project.find_by_id(params[:project_id])
@@ -23,13 +26,10 @@ class CommentsController < ApplicationController
 
   def edit
     # raise params.inspect
-    set_comment
   end
 
   def update
     # raise params.inspect
-    set_comment
-    set_project_instance_variable
       if project_user_equals_current_user && @comment.update(comment_params)
         redirect_to client_project_path(@project.client, @project)
       else
@@ -39,8 +39,6 @@ class CommentsController < ApplicationController
 
   def destroy
     # raise params.inspect
-    set_comment
-    set_project_instance_variable
       if project_user_equals_current_user
         @comment.destroy
         redirect_to client_project_path(@project.client, @project)
@@ -55,6 +53,10 @@ class CommentsController < ApplicationController
     if !@comment
       redirect_to projects_path
     end
+  end
+
+  def project_comment
+    @project = @comment.project
   end
 
   def comment_params
