@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
   def destroy
     # raise params.inspect
     if project_user_equals_current_user
-      @project.comments.destroy_all   #destroy comments associated with project.
+      # @project.comments.destroy_all   #destroy comments associated with project.
       @project.destroy
       redirect_to projects_path
     end

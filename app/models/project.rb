@@ -2,7 +2,7 @@ class Project < ApplicationRecord
 
   belongs_to :user
   belongs_to :client
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :name, :description, :client, :target_completion_date, presence: true
   validate :target_completion_date_cannot_be_greater_than_completion_date
