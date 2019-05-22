@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :project_comment, only: [:update, :destroy]
 
+
   def new
     if (params[:project_id]) && @project = Project.find_by_id(params[:project_id])
       @comment = @project.comments.build

@@ -2,6 +2,10 @@ class ClientsController < ApplicationController
 
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
+  def client_most_projects
+    @clients = Client.all
+  end
+
   def index
     @clients = Client.all
   end

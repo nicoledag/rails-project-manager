@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#create'
+  get '/most_popular_client' => 'clients#client_most_projects'
 
   resources :users
   resources :projects
