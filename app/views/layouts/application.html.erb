@@ -32,6 +32,11 @@
     <br>
     <br>
 
+    <% if flash[:message] %>
+     <div class="message"><%= flash[:message] %></div>
+     <br>
+    <% end %>
+
 
     <%= yield %>
 

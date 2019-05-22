@@ -13,6 +13,7 @@ class Project < ApplicationRecord
   scope :incomplete, -> { where(completion_date: nil).order(target_completion_date: :asc)}
 
 
+
   def completion_date_cannot_be_greater_than_current_date
     if completion_date != nil && completion_date > DateTime.now
       errors.add(:completion_date, "cannot be greater than current date")
