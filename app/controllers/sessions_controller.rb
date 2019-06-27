@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  #upated secret key 6.27/19
   def create
     if auth_hash = request.env["omniauth.auth"]
       @user = User.find_or_create_by_omniauth(auth_hash)
