@@ -21,3 +21,4 @@ Authors: Nicole Dagnenica
 Technology Used: Object Oriented Ruby programming language, Session and Bcrypt for secure session, Active Record for database management, HTML and SCSS for styling, Photoshop for design work.
 
 License: The gem is available as open source under the terms of the MIT License.
+# rails-project-manager
