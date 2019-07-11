@@ -22,7 +22,7 @@
 7) [ ]  There will be a quiz in your assessment. Be familiar with hoisting and scope as well as
 benefits of using jQuery and how that differs from vanilla JavaScript.
 
-  Benefits of JQuery 
+  Benefits of JQuery
 
   It is a Javascript library that makes writing Javascript easier.  More compatible between cross browsers.    It will reduce the development time. Use it to add animation and even handling on your website. jQuery simplifies HTML document traversing, which means "move through", are used to "find" (or select) HTML elements based on their relation to other elements. 
 
