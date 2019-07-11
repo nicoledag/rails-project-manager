@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = current_user.projects
+    # render json: @projects, status:200
   end
 
   def new
@@ -25,6 +26,10 @@ class ProjectsController < ApplicationController
 
   def show
 
+    # respond_to do |format|
+    #   format.html { render :show}
+    #   format.json { render json: @project.to_json(only: [:name, :description, :id]) }
+    # end
   end
 
   def edit
