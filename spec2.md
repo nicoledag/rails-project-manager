@@ -25,6 +25,8 @@
 
   It is a Javascript library that makes writing Javascript easier.  More compatible between cross browsers.    It will reduce the development time. Use it to add animation and even handling on your website. jQuery simplifies HTML document traversing, which means "move through", are used to "find" (or select) HTML elements based on their relation to other elements. 
 
+  CONS:   JQUERY is a heavy library to load.
+
   Added Jquery rails gem and updated application js file
   //= require jquery
   //= require jquery_ujs
