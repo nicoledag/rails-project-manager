@@ -1,8 +1,11 @@
 <H2>Client List</H2>
 
-<% if current_user.admin %>
+ <% if current_user.admin %>
+ <%# moved link to create new client out for heroku %>
+ <% end%>
+
 <h3><%= link_to "Create New Client", new_client_path(@client) %></h3>
-<% end%>
+
 
 <div style="overflow-x:auto;">
    <div class="scrollit">
