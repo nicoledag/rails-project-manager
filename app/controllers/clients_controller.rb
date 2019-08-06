@@ -15,14 +15,14 @@ class ClientsController < ApplicationController
   end
 
   def create
-    if current_user.admin
+    # if current_user.admin
       @client = Client.new(client_params)
       if @client.save
         redirect_to client_path(@client)
       else
         render :new  #lets us call field w/errors.  Keeps inputted data.  #renders users/new form.
       end
-    end
+    # end
   end
 
   def show
@@ -34,7 +34,8 @@ class ClientsController < ApplicationController
   end
 
   def update
-    if current_user.admin && @client.update(client_params)
+    # if current_user.admin && @client.update(client_params)
+      if @client.update(client_params)
         redirect_to client_path(@client)
     else
         render :edit #allows for field with errors.
